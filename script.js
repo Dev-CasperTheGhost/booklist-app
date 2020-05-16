@@ -1,7 +1,6 @@
 const alertBox = document.getElementById("alert")
 const alertMessage = document.getElementById("alert-message")
-const books = JSON.parse(localStorage.getItem("books")  || [])
-
+const books = JSON.parse(localStorage.getItem("books")  || "[]")
 
 updateList()
 

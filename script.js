@@ -1,6 +1,6 @@
 const alertBox = document.getElementById("alert")
 const alertMessage = document.getElementById("alert-message")
-const books = JSON.parse(localStorage.getItem("books")) || []
+const books = JSON.parse(localStorage.getItem("books")  || [])
 
 
 updateList()
@@ -70,7 +70,6 @@ function deleteFromList(index) {
 
     // Save the books back in localStorage
     localStorage.setItem("books", JSON.stringify(books));
-
 
 
     // Run function to update list

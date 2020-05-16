@@ -1,9 +1,9 @@
 const alertBox = document.getElementById("alert")
 const alertMessage = document.getElementById("alert-message")
-var books = []
+const books = JSON.parse(localStorage.getItem("books"))
 
 
-
+updateList()
 
 function addBook() {
     const bookTitle = document.getElementById("bookTitle");
@@ -12,6 +12,8 @@ function addBook() {
 
     // Add book to books array
     books.push({ title: bookTitle.value, author: bookAuthor.value, isbn: bookISBN.value })
+
+    localStorage.setItem("books", JSON.stringify(books));
 
     // Run add to list
     updateList("Successfully Added The Book!");
@@ -44,6 +46,11 @@ function updateList(message) {
     // Set innerHTML
     bookList.innerHTML = bookTr;
 
+    // Check if there's no message
+    if (!message) {
+        return alertBox.style.opacity = "0";
+    }
+
     // Show the alert box
     alertBox.style.opacity = "1";
     alertMessage.textContent = message;
@@ -59,10 +66,13 @@ function updateList(message) {
 function deleteFromList(index) {
 
     // Delete Book from array
-    books.splice(index, 1)
+    books.splice(index, 1);
+
+    // Save the books back in localStorage
+    localStorage.setItem("books", JSON.stringify(books));
+
+
 
     // Run function to update list
     updateList("Successfully Removed the book!");
-
 }
-

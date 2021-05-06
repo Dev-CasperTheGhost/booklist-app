@@ -11,3 +11,4 @@ Simple vanilla JavaScript app to add books to a list, also saves to localStorage
 - More JavaScript
 - JavaScript splice function
 - Style Table with CSS
+
